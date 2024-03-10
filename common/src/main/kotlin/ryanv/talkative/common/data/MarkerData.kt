@@ -1,14 +1,14 @@
 package ryanv.talkative.common.data
 
 import net.minecraft.nbt.CompoundTag
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.resources.PackResources$ResourceOutput
 import ryanv.talkative.consts.NBTConstants
 
-class MarkerData(var modelLocation: ResourceLocation, var baseColour: Int = 0xFFFFFF, var outlineColour: Int = 0xFFFFFF) {
+class MarkerData(var modelLocation: PackResources$ResourceOutput, var baseColour: Int = 0xFFFFFF, var outlineColour: Int = 0xFFFFFF) {
 
     companion object {
         fun deserialize(tag: CompoundTag): MarkerData {
-            var modelLocation = ResourceLocation(tag.getString(NBTConstants.MARKER_LOCATION))
+            var modelLocation = PackResources$ResourceOutput(tag.getString(NBTConstants.MARKER_LOCATION))
             var data = MarkerData(modelLocation)
 
             if (tag.contains(NBTConstants.MARKER_COLOUR))
